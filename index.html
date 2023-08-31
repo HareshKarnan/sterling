@@ -1,1 +1,72 @@
-Coming Soon!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #282c36;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::before, h1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 0;
+            background-color: #ff4b5c;
+            transition: height 0.5s;
+        }
+
+        h1::before {
+            left: -10px;
+            transform-origin: bottom;
+        }
+
+        h1::after {
+            right: -10px;
+            transform-origin: top;
+        }
+
+        h1:hover::before, h1:hover::after {
+            height: 100%;
+        }
+
+        p {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            animation: blink 1.2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 19%, 21%, 23%, 35%, 100% {
+                opacity: 0;
+            }
+            20%, 22%, 34% {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>COMING SOON</h1>
+        <p>...</p>
+    </div>
+</body>
+</html>
