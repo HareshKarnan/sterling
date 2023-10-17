@@ -1,72 +1,516 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #282c36;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STERLING: Self-Supervised Terrain Representation Learning from Unconstrained Robot Experience</title>
 
-        h1 {
-            font-size: 3rem;
-            position: relative;
-            display: inline-block;
-        }
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-        h1::before, h1::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 2px;
-            height: 0;
-            background-color: #ff4b5c;
-            transition: height 0.5s;
-        }
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-        h1::before {
-            left: -10px;
-            transform-origin: bottom;
-        }
+    gtag('js', new Date());
 
-        h1::after {
-            right: -10px;
-            transform-origin: top;
-        }
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
 
-        h1:hover::before, h1:hover::after {
-            height: 100%;
-        }
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
 
-        p {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            animation: blink 1.2s infinite;
-        }
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/utlogo.png">
 
-        @keyframes blink {
-            0%, 19%, 21%, 23%, 35%, 100% {
-                opacity: 0;
-            }
-            20%, 22%, 34% {
-                opacity: 1;
-            }
-        }
-
-    </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <div>
-        <h1>COMING SOON</h1>
-        <p>...</p>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://hareshkarnan.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://arxiv.org/abs/2309.09912">
+            PATERN
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2203.15983">
+            VI-IKD
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2206.08487">
+            Optim-FKD
+          </a>
+        </div>
+      </div>
     </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="font-size: 45.01px;">Self-Supervised Terrain Representation Learning from Unconstrained Robot Experience</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://hareshkarnan.github.io/">Haresh Karnan</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://elvout.github.io/">Elvin Yang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Daniel Farkash<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Garrett Warnell<sup>1,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.joydeepb.com/">Joydeep Biswas</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.utexas.edu/~pstone/">Peter Stone</a><sup>1,4</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup> University of Texas at Austin,</span>
+            <span class="author-block"><sup>2</sup>Cornell University</span>
+            <span class="author-block"><sup>3</sup>Army Research Laboratory</span>
+            <span class="author-block"><sup>4</sup>Sony AI</span>
+          </div>
+          
+          <div class="column has-text-centered">
+          <img src="./static/images/logos_affiliation.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."
+                 style="width: 65%;"/>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/pdf?id=VLihM67Wdi6"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/7WI41DfJQ2k?si=8kfQRKppHGsIHoOE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Spotlight Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=FQJqk7E892o&feature=youtu.be"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Spotlight Talk</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/HareshKarnan/sterling_corl23"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/dQb1XzocdtE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Trail Deployment</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/sterling_trail_full.m4v"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">sterling</span> is a self-supervised terrain representation learning algorithm that learns from unconstrained multi-modal robot experience
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          During off-road navigation, the ability to identify and distinguish terrains, known as <i>terrain-awareness</i> is crucial for autonomous mobile robots. Current approaches that provide robots with this awareness either rely on labeled data which is expensive to collect, engineered features and cost functions that may not generalize, or expert human demonstrations which may not be available. Towards endowing robots with terrain awareness without these limitations, we introduce <span class="dnerf">sterling</span>, a novel approach for learning terrain representations that relies solely on easy-to-collect, unconstrained (e.g., non-expert), and unlabeled robot experience, with no additional constraints on data collection.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Unconstrained Robot Experience. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-5">Learning with Unconstrained Robot Experience</h2>
+
+        <div class="content has-text-justified">
+        <span class="dnerf">sterling</span> learns terrain representations from unconstrained, unlabeled robot experiences collected using any navigation policy. Compared to requiring a human expert to provide teleoperated demonstrations and labels, collecting this type of robot experience is cheap and easy, thereby providing a scalable pathway to data collection and system improvement.
+        </div>
+        <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/sterling_intro.m4v"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="spacer"> </div>
+    <!--/ Unconstrained Robot Experience. -->
+
+
+
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-5">Offline Pre-Processing</h2>
+
+        <div class="content has-text-justified">
+        <span class="dnerf">sterling</span> learns terrain representations from unconstrained, unlabeled robot experiences collected using any navigation policy. Compared to requiring a human expert to provide teleoperated demonstrations and labels, collecting this type of robot experience is cheap and easy, thereby providing a scalable pathway to data collection and system improvement.
+        </div>
+        <video poster="" id="mask" autoplay controls muted loop playsinline width="360" height="240">
+          <source src="./static/videos/sterling_representations.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div> -->
+
+    <!-- Offline Pre-Processing. -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+      <h2 class="title is-4">Offline Pre-Processing</h2>
+
+      <div class="columns">
+          <!-- Text Column on the Left -->
+          <div class="column">
+              <div class="content has-text-justified">
+                  <span class="dnerf">sterling</span> pre-processes robot experience offline, obtaining both visual and non-visual observations of traversed terrains. Visual patches of the terrain at a particular location are extracted from multiple past viewpoints and are paired with inertial, proprioceptive, and tactile observations at the same location.  
+              </div>
+          </div>
+
+          <!-- Video Column on the Right -->
+          <div class="column">
+              <video poster="" id="mask" autoplay controls muted loop playsinline width="360" height="240">
+                  <source src="./static/videos/offline_preprocessing.mp4" type="video/mp4">
+              </video>
+          </div>
+      </div>
+  </div>
+</div>
+<!--/ Offline Pre-Processing. -->
+
+<!-- Offline Pre-Processing. -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+      <h2 class="title is-4">Non-Contrastive Self-Supervised Representation Learning</h2>
+
+      <div class="columns">
+        <!-- Video Column on the Left -->
+        <div class="column">
+          <img src="./static/images/sterling_arch.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+      </div>
+
+          <!-- Text Column on the Right -->
+          <div class="column">
+              <div class="content has-text-justified">
+                  <span class="dnerf">sterling</span> performs non-contrastive representation learning based on the VICReg framework and employs two novel self-supervision objectives, namely <b>viewpoint-invariance</b> and <b>multimodal-correlation</b> objectives to learn relevant terrain representations in a self-supervised way with no expert human annotations or demonstrations required.
+              </div>
+          </div>
+
+          
+      </div>
+  </div>
+</div>
+<!--/ Offline Pre-Processing. -->
+
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered trail-deployment-section">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Qualitative Study - Trail Deployment</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/dQb1XzocdtE?rel=0&amp;showinfo=0&amp;vq=hd1080&amp;autoplay=1"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        
+        <h4 class="content has-text-justified" style="font-size: 15px;">
+          We deployed <span class="dnerf">sterling</span> on a 3-mile off-road trail in Austin, TX to qualitatively evaluate it on the task of <b>preference-aligned</b> navigation. Trained with only a few minutes of robot experience, <span class="dnerf">sterling</span> features enable the robot to successfully complete the trail with minimal human intervention.
+        </h4>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<div class="columns is-centered has-text-centered">
+
+<div class="column is-four-fifths">
+  <h2 class="title is-3">Quantitative Study</h2>
+  
+  <h4 class="subtitle has-text-justified" style="font-size: 15px;">
+    We evaluate <span class="dnerf">sterling</span> in 6 different outdoor environments within the UT Austin campus with 8 different terrains, against other SOTA baseline methods. We use the <b>success-rate</b> metric to quantify operator preference-alignment of all methods. 
+  </h4>
+
+    <img src="./static/images/robot_expts_big.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+    <div class="content has-text-justified">
+   Trajectories traced by different approaches in 5 environments containing 8 different terrains. The operator preferences are shown above. We see that <span class="dnerf">sterling</span> navigates in an operator-preference aligned manner, by preferring cement sidewalk, red bricks, pebble sidewalk, and yellow bricks over mulch, grass, marble rocks, and bush, outperforming other baselines and performing on-par with the Fully-Supervised approach.
+    </div>
+</div>
+
+</div>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Segmentation-based Baseline</h2>
+          <p>
+            Segmentation-based approach do not scale well to all terrains seen in the real world, and need additional human annotations to be collected for each new terrain.
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/segmentation_based.m4v"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">STERLING</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <span class="dnerf">sterling</span> learns representations in a self-supervised manner and hence can easily adapt to terrains in the real world, enabling preference-aligned navigation.
+            </p>
+            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/sterling_success.m4v"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered trail-deployment-section">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">More Quantitative Robot Expriments</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/7WI41DfJQ2k?rel=0&amp;showinfo=0&amp;vq=hd1080&amp;autoplay=1"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        
+        <h4 class="content has-text-justified" style="font-size: 15px;">
+          We perform extensive quantitative comparison of <span class="dnerf">sterling</span> with other SOTA baseline methods on the preference-aligned navigation task in 6 different outdoor environments within the UT Austin campus with 8 different terrains. We use the <b>success-rate</b> metric to quantify operator preference-alignment of all methods.
+        </h4>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Also checkout our recent work, available as a pre-print (<a href="https://arxiv.org/abs/2309.09912">PATERN</a>) on extrapolating operator preferences to visually novel terrains.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    
+    <pre><code>@misc{karnan2023selfsupervised,
+      title={STERLING: Self-Supervised Terrain Representation Learning from Unconstrained Robot Experience}, 
+      author={Haresh Karnan and Elvin Yang and Daniel Farkash and Garrett Warnell and Joydeep Biswas and Peter Stone},
+      year={2023},
+      eprint={2309.15302},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://openreview.net/pdf?id=VLihM67Wdi6">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/HareshKarnan/sterling_corl23" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website source code from <a
+              href="https://github.com/nerfies/nerfies.github.io"><span class="dnerf">Nerfies</span></a> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
