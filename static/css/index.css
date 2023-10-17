@@ -13,7 +13,12 @@ body {
     margin-bottom: 5px;
 }
 
+.trail-deployment-section {
+  margin-top: 20px;  /* or whatever space you desire */
+}
+
 .dnerf {
+  font-size: 23px;
   font-variant: small-caps;
 }
 
@@ -25,10 +30,6 @@ body {
 
 .teaser {
   font-family: 'Google Sans', sans-serif;
-}
-
-
-.publication-title {
 }
 
 .publication-banner {
@@ -48,6 +49,7 @@ body {
 }
 
 .publication-title {
+    font-size: 40px;
     font-family: 'Google Sans', sans-serif;
 }
 
